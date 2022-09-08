@@ -1,4 +1,4 @@
-import { trimExtname, Raw, ReadonlyRecord, ReadonlyList } from './utils'
+import { Raw, ReadonlyRecord, ReadonlyList } from './utils'
 import {
   PluginResource as RawPluginResource,
   Plugins as RawPlugins,
@@ -17,8 +17,6 @@ export class PluginResource extends Raw<RawPluginResource> {
   get filename(): string {
     return this._inner.name
   }
-
-  public readonly id = trimExtname(this._inner.name, '.7z')
 
   public readonly underline: UnderlineExt = UnderlineExt.fromRaw(
     this.filename,

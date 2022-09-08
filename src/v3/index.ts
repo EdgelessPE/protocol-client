@@ -7,8 +7,9 @@ export {
   HubResource,
   HubUpdateOptions,
   HubVersion,
+  WideGaps,
 } from './hub'
-export { PluginResource, PluginTree, Plugins } from './plugin'
+export { PluginResource, PluginTree, Plugins, PluginList } from './plugin'
 export { FileResource, CoverResource, AlphaResource } from './resources'
 export { Server, ServerProperties } from './server'
 export { Service, Services } from './service'
@@ -18,7 +19,8 @@ export {
   ReadonlyList,
   ReadonlyMap,
   ReadonlyRecord,
-  trimExtname,
+  ReadonlySet,
+  Wrapped,
 } from './utils'
 export { VentoyResource } from './ventoy'
 export { Client, RequestConfig } from './request'
@@ -32,3 +34,4 @@ export {
   resolveUnderlineExt,
 } from './underline'
 export type { raw }
+export { TypedKeyValue, Entries } from './utils'

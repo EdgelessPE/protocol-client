@@ -1,14 +1,7 @@
-export function trimExtname(path: string, extname: string): string {
-  const index = path.lastIndexOf(extname)
-  if (extname.startsWith('.') && index >= 0) {
-    return path.slice(0, index)
-  }
-
-  return path
-}
-
+/** @ingored @internal */
 export const INNER = Symbol('kToInner')
 
+/** @ingored @internal */
 export interface Wrapped<T> {
   [INNER]: () => T
 }
@@ -22,13 +15,16 @@ export function unwrap<T>(t: Wrapped<T>): T {
 }
 
 export abstract class Raw<T> implements Wrapped<T> {
-  constructor(protected _inner: T) {}
+  /** @ingored @internal */
+  constructor(/** @ingored @internal */ protected _inner: T) {}
 
+  /** @ingored @internal */
   [INNER](): T {
     return this._inner
   }
 
-  toJSON(): {} {
+  /** @ingored @internal */
+  toJSON(): any {
     return {}
   }
 }
@@ -77,11 +73,13 @@ export abstract class ReadonlyList<T> extends Raw<T[]> {
   }
 }
 
+/** @ingored @internal */
 export interface TypedKeyValue<T> {
   get: (<K extends keyof T>(key: K) => T[K]) | (<V = any>(key: string) => V)
   has: <K extends string>(key: K) => boolean
 }
 
+/** @ingored @internal */
 export type Entries<T, S extends keyof T = keyof T> = S extends S
   ? [
       S,
