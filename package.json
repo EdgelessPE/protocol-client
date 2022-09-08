@@ -1,6 +1,6 @@
 {
   "name": "edgeless-protocol",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Edgeless Protocol Client",
   "exports": {
     ".": {
