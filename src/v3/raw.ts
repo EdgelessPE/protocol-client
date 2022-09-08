@@ -123,4 +123,13 @@ export interface Underline3 {
   author: string
 }
 
+export interface Extname {
+  base: string
+  attrs: Set<string>
+  full: string
+}
+
 export type Underline = Underline3 & Partial<Underline4>
+export type Underline3Ext = Underline3 & { extname: Extname }
+export type Underline4Ext = Underline4 & { extname: Extname }
+export type UnderlineExt = Underline & { extname: Extname }
