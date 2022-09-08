@@ -1,6 +1,6 @@
 {
   "name": "edgeless-protocol",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Edgeless Protocol Client",
   "exports": {
     ".": {
@@ -20,6 +20,7 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "build:dts": "api-extractor run",
+    "build:docs": "typedoc",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
@@ -34,7 +35,7 @@
     "registry": "https://registry.npmjs.com"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.30",
+    "@microsoft/api-extractor": "~7.30.0",
     "@rollup/plugin-commonjs": "22.0.2",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "13.3.0",
@@ -58,7 +59,9 @@
     "rollup-plugin-typescript2": "0.33.0",
     "ts-jest": "28.0.8",
     "tslib": "2.4.0",
-    "typescript": "4.8.2"
+    "typedoc": "0.23.14",
+    "typedoc-theme-hierarchy": "^3.0.0",
+    "typescript": "~4.8.2"
   },
   "dependencies": {
     "axios": "^0.27.2",
