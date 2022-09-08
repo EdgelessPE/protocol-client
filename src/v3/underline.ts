@@ -115,11 +115,7 @@ export function resolveUnderlineExt(
   const { ext, name } = pathParse(filename)
   const exts = resolveExtname(ext)
   const id = resolveUnderline(name, category)
-
-  return {
-    ...id,
-    extname: exts,
-  }
+  return Object.assign(id, { extname: exts })
 }
 
 export class UnderlineExt
@@ -131,15 +127,17 @@ export class UnderlineExt
     /** @ingored @internal */ protected readonly _inner: RawUnderlineExt
   ) {
     super(_inner)
+    this.extname = new Extname(_inner.extname)
   }
 
-  public readonly extension = new Extname(this._inner.extname)
+  public readonly extname: Extname
+
   toFilename3(): string {
-    return `${this.toString3()}${this.extension.full}`
+    return `${this.toString3()}${this.extname.full}`
   }
 
   toPureFilename(): string {
-    return `${this.toString3()}${this.extension.base}`
+    return `${this.toString3()}${this.extname.base}`
   }
 
   /** @ingored @internal */
