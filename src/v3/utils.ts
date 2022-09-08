@@ -7,7 +7,7 @@ export function trimExtname(path: string, extname: string): string {
   return path
 }
 
-const INNER = Symbol('kToInner')
+export const INNER = Symbol('kToInner')
 
 export interface Wrapped<T> {
   [INNER]: () => T
@@ -30,6 +30,24 @@ export abstract class Raw<T> implements Wrapped<T> {
 
   toJSON(): {} {
     return {}
+  }
+}
+
+export abstract class ReadonlySet<T> extends Raw<Set<T>> {
+  has(x: T): boolean {
+    return this._inner.has(x)
+  }
+
+  values(): IterableIterator<T> {
+    return this._inner.values()
+  }
+
+  [Symbol.iterator](): IterableIterator<T> {
+    return this.values()
+  }
+
+  get size(): number {
+    return this._inner.size
   }
 }
 
