@@ -1,7 +1,4 @@
 import * as raw from './raw'
-
-export type { raw }
-export { Underline, Underline3, Underline4 } from './raw'
 export { Hello } from './hello'
 export {
   HubNotice,
@@ -11,14 +8,7 @@ export {
   HubUpdateOptions,
   HubVersion,
 } from './hub'
-export {
-  PluginResource,
-  PluginTree,
-  Plugins,
-  resolveId,
-  compareVersion,
-  withCategory,
-} from './plugin'
+export { PluginResource, PluginTree, Plugins } from './plugin'
 export { FileResource, CoverResource, AlphaResource } from './resources'
 export { Server, ServerProperties } from './server'
 export { Service, Services } from './service'
@@ -32,3 +22,13 @@ export {
 } from './utils'
 export { VentoyResource } from './ventoy'
 export { Client, RequestConfig } from './request'
+export {
+  Underline,
+  UnderlineExt,
+  Attrs,
+  Extname,
+  resolveExtname,
+  resolveUnderline,
+  resolveUnderlineExt,
+} from './underline'
+export type { raw }
