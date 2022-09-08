@@ -127,7 +127,7 @@ export class ReadonlyRecord<T extends Record<string, any>> extends Raw<T> {
     return (this._inner[key] ?? undefined) !== undefined
   }
 
-  values(): IterableIterator<T[keyof T]> {
+  values(): IterableIterator<NonNullable<T[keyof T]>> {
     return Object.values(this._inner).values()
   }
 
