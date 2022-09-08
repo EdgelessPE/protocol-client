@@ -1,0 +1,7 @@
+{
+  "entryPoints": ["./src/index.ts"],
+  "out": "docs",
+  "theme": "hierarchy",
+  "name": "Edgeless Protocol Client",
+  "hideGenerator": true
+}
