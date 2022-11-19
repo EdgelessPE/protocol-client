@@ -122,9 +122,9 @@ export class UnderlineExt
   extends Underline
   implements Wrapped<RawUnderlineExt>
 {
-  /** @ingored @internal */
+  /**  @internal */
   constructor(
-    /** @ingored @internal */ protected readonly _inner: RawUnderlineExt
+    /**  @internal */ protected readonly _inner: RawUnderlineExt
   ) {
     super(_inner)
     this.extname = new Extname(_inner.extname)
@@ -140,7 +140,7 @@ export class UnderlineExt
     return `${this.toString3()}${this.extname.base}`
   }
 
-  /** @ingored @internal */
+  /**  @internal */
   [INNER](): RawUnderlineExt {
     return this._inner
   }

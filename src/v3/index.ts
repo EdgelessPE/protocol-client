@@ -1,4 +1,7 @@
-import * as raw from './raw'
+/* eslint-disable import/no-duplicates */
+import type * as raw from './raw'
+import type { Integrity } from './raw'
+
 export { Hello } from './hello'
 export {
   HubNotice,
@@ -33,5 +36,6 @@ export {
   resolveUnderline,
   resolveUnderlineExt,
 } from './underline'
+export type { Integrity }
 export type { raw }
 export { TypedKeyValue, Entries } from './utils'

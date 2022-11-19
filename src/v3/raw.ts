@@ -25,7 +25,12 @@ export type Services = Service[]
 
 export type ServerName = ReservedServiceName | string
 
-export type ReservedServiceName = 'plugin' | 'iso' | 'alpha' | 'ventoy' | 'hub'
+export type ReservedServiceName =
+  | 'plugin'
+  | 'kernel'
+  | 'alpha'
+  | 'ventoy'
+  | 'hub'
 
 export interface Plugins {
   tree: PluginTree
@@ -40,21 +45,28 @@ export interface PluginResource {
   name: string
   size: number
   timestamp: number
-  hash: string
+  integrity: Integrity
 }
 
 export interface FileResource {
   version: string
-  file_name: string
+  name: string
   url: string
+  timestamp: number
+  size: number
+  integrity: Integrity
 }
 
+export interface Integrity {
+  method: string
+  value: string
+}
 export interface CoverResource {
   lower_than: string
-  url: string
+  file: FileResource
 }
 
-export type ReservedFileResourceKeys = 'iso'
+export type ReservedFileResourceKeys = 'kernel'
 export type ReservedFileResources = Record<
   ReservedFileResourceKeys,
   FileResource
@@ -66,8 +78,8 @@ export interface VentoyResource {
 }
 
 export interface AlphaResource {
-  wim: FileResource
-  cover: CoverResource
+  kernel_wim?: FileResource
+  cover?: CoverResource
 }
 
 export interface HubResource {
@@ -108,7 +120,6 @@ export interface HubVersion {
 export interface Hello extends Server, ReservedFileResources {
   services: Services
   plugins: Plugins
-  alpha: AlphaResource
   hub: HubResource
   ventoy: VentoyResource
 }

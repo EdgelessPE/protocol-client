@@ -1,5 +1,6 @@
 import { Raw, ReadonlyRecord, ReadonlyList } from './utils'
 import {
+  Integrity,
   PluginResource as RawPluginResource,
   Plugins as RawPlugins,
   PluginTree as RawPluginTree,
@@ -31,8 +32,11 @@ export class PluginResource extends Raw<RawPluginResource> {
     return this._inner.timestamp
   }
 
-  get hash(): string {
-    return this._inner.hash
+  integrity(): Readonly<Integrity> {
+    return Object.freeze({
+      method: this._inner.integrity.method,
+      value: this._inner.integrity.value,
+    })
   }
 }
 

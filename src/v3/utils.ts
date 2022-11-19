@@ -1,7 +1,7 @@
-/** @ingored @internal */
+/**  @internal */
 export const INNER = Symbol('kToInner')
 
-/** @ingored @internal */
+/**  @internal */
 export interface Wrapped<T> {
   [INNER]: () => T
 }
@@ -15,15 +15,15 @@ export function unwrap<T>(t: Wrapped<T>): T {
 }
 
 export abstract class Raw<T> implements Wrapped<T> {
-  /** @ingored @internal */
-  constructor(/** @ingored @internal */ protected _inner: T) {}
+  /**  @internal */
+  constructor(/**  @internal */ protected _inner: T) {}
 
-  /** @ingored @internal */
+  /**  @internal */
   [INNER](): T {
     return this._inner
   }
 
-  /** @ingored @internal */
+  /**  @internal */
   toJSON(): any {
     return {}
   }
@@ -73,13 +73,13 @@ export abstract class ReadonlyList<T> extends Raw<T[]> {
   }
 }
 
-/** @ingored @internal */
+/**  @internal */
 export interface TypedKeyValue<T> {
   get: (<K extends keyof T>(key: K) => T[K]) | (<V = any>(key: string) => V)
   has: <K extends string>(key: K) => boolean
 }
 
-/** @ingored @internal */
+/**  @internal */
 export type Entries<T, S extends keyof T = keyof T> = S extends S
   ? [
       S,
